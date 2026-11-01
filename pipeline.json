@@ -1,0 +1,14 @@
+{
+  "pipeline_name": "PL_API_to_ADLS_to_SQL",
+  "description": "My end to end project for 100k records",
+  "steps": {
+    "step1": "Get watermark value from SQL table - SELECT max LastModifiedDate",
+    "step2": "Copy from public API to ADLS Gen2 raw folder using ADF Copy Activity",
+    "step3": "Dataflow - Filter transformation to remove NULL and duplicate rows",
+    "step4": "Dataflow - Derived Column to add new columns",
+    "step5": "Load clean data to Azure SQL",
+    "step6": "Update watermark table with new date"
+  },
+  "watermark_column": "LastModifiedDate",
+  "tools": ["ADF", "ADLS Gen2", "Data Flow", "Azure SQL", "Power BI"]
+}
